@@ -27,9 +27,11 @@
                   <li class="nav-item">
                     <a class="nav-link" href="/input-trip">Input Trip</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link">Profil</a>
-                  </li>
+                  <form method="POST" action="{{ route('logout') }}" class="m-0">
+                    @csrf
+                    <a :href="route('logout')" class="nav-link" onclick="event.preventDefault();
+                                        this.closest('form').submit();">Keluar</a>
+                </form>
                 </ul>
               </div>
         </div>
