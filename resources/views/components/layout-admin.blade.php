@@ -30,7 +30,7 @@
                   <form method="POST" action="{{ route('logout') }}" class="m-0">
                     @csrf
                     <a :href="route('logout')" class="nav-link" onclick="event.preventDefault();
-                                        this.closest('form').submit();">Keluar</a>
+                                        this.closest('form').submit();" style="cursor: pointer;">Keluar</a>
                 </form>
                 </ul>
               </div>
