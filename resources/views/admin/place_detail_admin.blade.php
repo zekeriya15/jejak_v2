@@ -5,10 +5,16 @@
             <div class="container-lg">
                 <div class="row">
                     <div class="col-6">
-                        <img src="/img2/gal1.jpg" width="100%" id="ProductImg">
+                        <img src="{{ asset('storage/' . $trip->images->first()->image_path) }}" width="100%" id="ProductImg">
 
                         <div class="row my-2">
+                            <!-- Loop through all images for small thumbnail previews -->
+                            @foreach ($trip->images as $image)
                             <div class="small-img-col col">
+                                <img src="{{ asset('storage/' . $image->image_path) }}" width="100%" class="small-img">
+                            </div>
+                            @endforeach
+                            {{-- <div class="small-img-col col">
                                 <img src="/img2/gal1.jpg" width="100%" class="small-img">
                             </div>
                             <div class="small-img-col col">
@@ -19,18 +25,18 @@
                             </div>
                             <div class="small-img-col col">
                                 <img src="/img2/gal4.jpg" width="100%" class="small-img">
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
 
                     <div class="col-6"> 
-                        <h1>Hiking di Gunung Putri Lembang</h1>
-                        <p class="lead">Gunung Putri Lembang</p>
-                        <p>Jl. Gunung Putri No. 184, Jayagiri, Lembang, Bandung Barat, Jawa Barat</p>
-                        <p class="p">Harga Tiket: Rp25.000</p>
-                        <p class="p">Harga Trip: Rp25.000</p>
-                        <p>Tanggal Trip: 20 Oktober 2024</p>
-                        <p>Durasi: 1 hari</p>
+                        <h1>{{ $trip->judul }}</h1>
+                        <p class="lead">{{ $trip->nama_destinasi }}</p>
+                        <p>{{ $trip->alamat }}</p>
+                        <p class="p">Harga Tiket: Rp{{ number_format($trip->harga_tiket) }}</p>
+                        <p class="p">Harga Trip: Rp{{ number_format($trip->harga_trip) }}</p>
+                        <p>Tanggal Trip: {{ $trip->tgl_trip }}</p>
+                        <p>Durasi: {{ $trip->durasi }} hari</p>
                         <!-- <a href="" class="btn btn-success">Daftar</a> -->
             
                         
@@ -43,18 +49,12 @@
             <div class="container my-4">
                 <hr>
                 <h2>Deskripsi</h2>
-                <p>Gunung Putri Lembang adalah salah satu pegunungan yang terletak dikecamatan 
-                    Lembang, Kabupaten Bandung Barat. Gunung Putri Lembang merupakan salah satu
-                    tempat wisata yang berupa sebuah bukit yang arealnya banyak ditumbuhi dengan
-                    rumput dan pohon kecil lainnya yang di tengahnya terdapat sebuah Tugu bernama 
-                    Tugu Sespim Objek wisata Gunung Putri Lembang bisa jadi opsi yang cukup bersahabat 
-                    bagi para pendaki pemula. Treknya berupa tangga tertata dan hanya memerlukan 
-                    waktu sekitar 30 menit untuk mencapai puncak.</p>
+                <p>{{ $trip->deskripsi }}</p>
             </div>
             <div class="container my-4">
                 <hr>
                 <h2>Fasilitas</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui soluta commodi inventore dicta omnis repellendus tempore impedit veritatis, neque amet! Placeat adipisci illo neque qui veniam inventore nulla dolorem dolor.</p>
+                <p>{{ $trip->fasilitas }}</p>
             </div>
 
         </section>
@@ -140,7 +140,7 @@
         </script>
 
 
-        <script>
+        {{-- <script>
             var ProductImg = document.getElementById("ProductImg");
             var SmallImg = document.getElementsByClassName("small-img");
     
@@ -159,6 +159,17 @@
             SmallImg[3].onclick = function()
             {
                 ProductImg.src = SmallImg[3].src;
+            }
+        </script> --}}
+
+        <script>
+            var ProductImg = document.getElementById("ProductImg");
+            var SmallImg = document.getElementsByClassName("small-img");
+
+            for (let i = 0; i < SmallImg.length; i++) {
+                SmallImg[i].onclick = function() {
+                    ProductImg.src = SmallImg[i].src;
+                }
             }
         </script>
 

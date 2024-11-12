@@ -59,23 +59,24 @@
             </div>
            
             @foreach ($trips as $trip)
-            <div class="d-flex align-items-center border p-3 mb-3 rounded">
-                <div class="rounded">
-                    <img src="{{ asset('storage/' . $trip->images->first()->image_path) }}" style="width: 200px;" class="rounded">
-                </div>
-                <div class="ms-3">
-                    <div>
-                        <h5>{{ $trip->judul }}</h5>
-                        <hr>
-                        <p class="m-0">{{ $trip->alamat }}</p>
-                        {{-- <small class="text-muted">Jam Buka: 01.00-19.50</small><br> --}}
-                        <small class="text-muted">Harga: Rp{{ number_format($trip->harga_trip) }}</small>
-                        <p class="mt-1">{{ Str::limit($trip->deskripsi, 100) }}</p>
+            <a href="{{ route('place-detail-admin', ['trip_id' => $trip->id]) }}" style="text-decoration: none; color: inherit;">
+                <div class="d-flex align-items-center border p-3 mb-3 rounded">
+                    <div class="rounded">
+                        <img src="{{ asset('storage/' . $trip->images->first()->image_path) }}" style="width: 200px;" class="rounded">
                     </div>
-                        
+                    <div class="ms-3">
+                        <div>
+                            <h5>{{ $trip->judul }}</h5>
+                            <hr>
+                            <p class="m-0">{{ $trip->alamat }}</p>
+                            {{-- <small class="text-muted">Jam Buka: 01.00-19.50</small><br> --}}
+                            <small class="text-muted">Harga: Rp{{ number_format($trip->harga_trip) }}</small>
+                            <p class="mt-1">{{ Str::limit($trip->deskripsi, 100) }}</p>
+                        </div>
+                            
+                    </div>
                 </div>
-            </div>
-                
+            </a>   
             @endforeach
             
 

@@ -22,6 +22,8 @@ class TripController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
+        // dd($request->file('fotos'));
+
         $request->validate([
             'judul' => 'required|string|max:255',
             'nama_destinasi' => 'required|string|max:255',
@@ -67,4 +69,12 @@ class TripController extends Controller
         return redirect('/profil-admin')->with('success', 'Trip created successfully!');
     }
     
+
+    public function showPlaceDetailAdmin($trip_id)
+    {
+        // fetch the trip and its images based on the trip id
+        $trip = Trip::with('images')->findOrFail($trip_id);
+
+        return view('admin.place_detail_admin', compact('trip'));
+    }
 }
