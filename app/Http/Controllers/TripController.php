@@ -22,6 +22,32 @@ class TripController extends Controller
         return view('admin.profil_admin', compact('trips'));
     }
 
+    public function getAllTrips()
+    {
+        // $trips = Trip::with('images')->get();
+        $trips = Trip::with([
+            'images' => function ($query) {
+                $query->oldest()->limit(1); // Or `latest()` to get the newest image
+            }
+        ])->get();
+        return view('homepage', compact('trips'));
+    }
+
+    public function showTripDetails($tripId)
+    {
+        $trip = Trip::with(['images', 'reviews.images', 'reviews.user'])
+            ->findOrFail($tripId);
+
+        // Calculate the average rating
+        $averageRating = $trip->reviews->avg('rating');
+
+        return view('place_detail', [
+            'trip' => $trip,
+            'averageRating' => $averageRating,
+        ]);
+    }
+
+
     public function store(Request $request): RedirectResponse
     {
         // dd($request->file('fotos'));

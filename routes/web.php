@@ -32,13 +32,11 @@ Route::middleware('auth')->group(function () {
 
 
     
-    Route::get('/homepage', function () {
-        return view('homepage');
-    });
+    Route::get('/homepage', [TripController::class, 'getAllTrips']);
 
-    Route::get('/place-detail', function () {
-        return view('place_detail');
-    });
+    Route::get('/trip/{tripId}', [TripController::class, 'showTripDetails'])->name('trip.details');
+
+    
 
 
 
