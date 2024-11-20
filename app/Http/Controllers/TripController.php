@@ -111,7 +111,7 @@ class TripController extends Controller
     public function update(Request $request, $id)
     {
         $trip = Trip::findOrFail($id);
-    
+
         // Validate the request
         $request->validate([
             'judul' => 'required|string|max:255',
@@ -127,7 +127,7 @@ class TripController extends Controller
             'delete_image_ids' => 'nullable|array',
             'delete_image_ids.*' => 'integer|exists:trip_images,id',
         ]);
-    
+
         // Update trip details
         $trip->update($request->only([
             'judul',
@@ -140,7 +140,7 @@ class TripController extends Controller
             'harga_trip',
             'harga_tiket'
         ]));
-    
+
         // Handle new image uploads
         if ($request->hasFile('fotos')) {
             foreach ($request->file('fotos') as $image) {
@@ -148,7 +148,7 @@ class TripController extends Controller
                 $trip->images()->create(['image_path' => $path]);
             }
         }
-    
+
         // Handle deleting old images
         if ($request->filled('delete_image_ids')) {
             foreach ($request->delete_image_ids as $imageId) {
@@ -159,10 +159,11 @@ class TripController extends Controller
                 }
             }
         }
-    
+
         return redirect('/profil-admin')->with('success', 'Trip updated successfully.');
     }
-    
+
+
 
 
 

@@ -1,4 +1,4 @@
-<x-layout>
+{{-- <x-layout>
 
 
         <section>
@@ -104,4 +104,71 @@
             }
         </script>
 
+</x-layout> --}}
+
+
+
+<x-layout>
+    <section>
+        <div class="container-lg">
+            <div class="row">
+                <div class="col-6">
+                    <!-- Main Trip Image -->
+                    <img src="{{ asset('storage/' . $trip->images->first()->image_path) }}" width="100%" id="ProductImg">
+
+                    <!-- Additional Images -->
+                    <div class="row my-2">
+                        @foreach ($trip->images as $image)
+                            <div class="small-img-col col">
+                                <img src="{{ asset('storage/' . $image->image_path) }}" width="100%" class="small-img">
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+
+                <div class="col-6"> 
+                    <h1>{{ $trip->judul }}</h1>
+                    <p class="lead">{{ $trip->nama_destinasi }}</p>
+                    <p>{{ $trip->alamat }}</p>
+                    <p class="p">Harga Tiket: Rp{{ number_format($trip->harga_tiket) }}</p>
+                    <p class="p">Harga Trip: Rp{{ number_format($trip->harga_trip) }}</p>
+                    <p>Tanggal Trip: {{ $trip->tgl_trip }}</p>
+                    <p>Durasi: {{ $trip->durasi }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container my-4">
+            <hr>
+            <h2>Deskripsi</h2>
+            <p>{{ $trip->deskripsi }}</p>
+        </div>
+        <div class="container my-4">
+            <hr>
+            <h2>Fasilitas</h2>
+            <p>{{ $trip->fasilitas }}</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="container my-4">
+            <hr>
+            <div class="d-flex justify-content-center">
+                <a href="{{ route('input.ulasan', ['tripId' => $trip->id]) }}" class="btn btn-success">Tambah Ulasan</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        var ProductImg = document.getElementById("ProductImg");
+        var SmallImg = document.getElementsByClassName("small-img");
+
+        for (let i = 0; i < SmallImg.length; i++) {
+            SmallImg[i].onclick = function() {
+                ProductImg.src = SmallImg[i].src;
+            }
+        }
+    </script>
 </x-layout>

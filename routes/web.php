@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TripController;
+use App\Http\Controllers\UserController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -42,17 +43,14 @@ Route::middleware('auth')->group(function () {
 
 
 
-    Route::get('/profil-user', function () {
-        return view('user.profil_user');
-    });
+    Route::get('/profil-user', [UserController::class, 'index']);
 
-    Route::get('/place-detail-ulasan', function () {
-        return view('user.place_detail_user_ulasan');
-    });
+    Route::get('/place-detail-ulasan/{trip_id}', [UserController::class, 'detail'])->name('place-detail-user-ulasan');
 
-    Route::get('/input-ulasan', function () {
-        return view('user.input_ulasan');
-    });
+    Route::get('/input-ulasan/{tripId}', [UserController::class, 'inputUlasan'])->name('input.ulasan');
+
+    Route::post('/input-ulasan/{tripId}', [UserController::class, 'submitUlasan'])->name('submit.ulasan');
+
 
 
 

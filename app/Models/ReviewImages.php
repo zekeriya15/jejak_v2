@@ -13,6 +13,11 @@ class ReviewImages extends Model
 
     protected $table = 'review_images';
 
+    protected $fillable = [
+        'review_id',
+        'image_path',
+    ];
+
 
     public function review() 
     {

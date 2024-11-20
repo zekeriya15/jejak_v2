@@ -13,6 +13,13 @@ class Review extends Model
 
     protected $table = 'reviews';
 
+    protected $fillable = [
+        'user_id',
+        'trip_id',
+        'rating',
+        'ulasan',
+    ];
+
 
     public function user() 
     {
