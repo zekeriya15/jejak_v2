@@ -106,12 +106,14 @@
 
         <section>
             <div class="container-lg mt-5 mb-4 d-flex justify-content-between">
-                <div class="">
-                    <a href="" class="btn btn-danger">Hapus Acara</a>   
-                    </div>
-                    <div>    
-                    <a href="" class="btn btn-warning">Edit Acara</a>
-                    </div>
+                <form action="{{ route('trip.destroy', $trip->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this trip?')">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Hapus Acara</button>
+                </form>
+                <div>
+                    <a href="{{ route('trip.edit', $trip->id) }}" class="btn btn-warning">Edit Acara</a>
+                </div>
             </div>
         </section>
 

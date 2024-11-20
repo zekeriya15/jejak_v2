@@ -68,6 +68,7 @@
                         <div>
                             <h5>{{ $trip->judul }}</h5>
                             <hr>
+                            <p class="m-0">Tanggal trip: {{ $trip->tgl_trip }}</p>
                             <p class="m-0">{{ $trip->alamat }}</p>
                             {{-- <small class="text-muted">Jam Buka: 01.00-19.50</small><br> --}}
                             <small class="text-muted">Harga: Rp{{ number_format($trip->harga_trip) }}</small>

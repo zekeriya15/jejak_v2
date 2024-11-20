@@ -26,7 +26,7 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/dashboard">Beranda</a>
+                    <a class="nav-link active" aria-current="page" href="/homepage">Beranda</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">Kategori</a>
@@ -35,7 +35,14 @@
                     <a class="nav-link" href="#">Tentang</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/profil">Profil</a>
+                    <a class="nav-link" href="/profil-user">Profil</a>
+                  </li>
+                  <li class="nav-item">
+                    <form method="POST" action="{{ route('logout') }}" class="m-0">
+                      @csrf
+                      <a :href="route('logout')" class="nav-link" style="cursor: pointer" onclick="event.preventDefault();
+                                          this.closest('form').submit();">Keluar</a>
+                  </form>
                   </li>
                 </ul>
               </div>

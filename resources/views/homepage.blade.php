@@ -44,7 +44,7 @@
                     <a href="Inputplace.php" class="nav-item nav-link">Tambah</a>
                     <a class="nav-item nav-link" onclick="scrollToBottom()">Kontak</a>
                 </div>
-                <a href="/profil" class="btn btn-primary rounded-pill py-2 px-4">Profil</a>
+                <a href="/profil-user" class="btn btn-primary rounded-pill py-2 px-4">Profil</a>
                 <form method="POST" action="{{ route('logout') }}" class="m-0">
                     @csrf
                     <a :href="route('logout')" class="btn btn-primary rounded-pill px-4" style="font-size: smaller; padding: smaller; margin:10px" onclick="event.preventDefault();

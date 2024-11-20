@@ -66,8 +66,16 @@ Route::middleware('auth')->group(function () {
         return view('admin.input_trip');
     });
 
+    Route::get('/trip/edit/{id}', [TripController::class, 'edit'])->name('trip.edit');
+
+
 
     Route::post('/trip/store', [TripController::class, 'store'])->name('trip.store');
+
+    Route::put('/trip/update/{id}', [TripController::class, 'update'])->name('trip.update');
+
+    Route::delete('/trip/{id}', [TripController::class, 'destroy'])->name('trip.destroy');
+
 
         
 });
