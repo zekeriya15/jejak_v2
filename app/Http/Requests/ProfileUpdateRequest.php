@@ -25,6 +25,17 @@ class ProfileUpdateRequest extends FormRequest
                 'max:255',
                 Rule::unique(User::class)->ignore($this->user()->id),
             ],
+            'phone' => [
+                'nullable',  // Make phone field optional
+                'string',    // Ensure it is a string
+                'max:15',    // Adjust max length based on your requirements
+                'unique:users,phone,' . $this->user()->id, // Ensure the phone number is unique (except for the current user's)
+            ],
+            'password' => [
+                'nullable',  // Allow password to be null if not provided
+                'confirmed',  // Ensure password confirmation matches
+                'min:8',  // Set a minimum length requirement for the password
+            ],
         ];
     }
 }

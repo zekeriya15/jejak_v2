@@ -32,6 +32,9 @@ Route::middleware('auth')->group(function () {
 
 
     
+
+
+    
     Route::get('/homepage', [TripController::class, 'getAllTrips']);
 
     Route::get('/trip/{tripId}', [TripController::class, 'showTripDetails'])->name('trip.details');

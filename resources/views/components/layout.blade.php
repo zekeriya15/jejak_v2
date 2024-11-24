@@ -38,6 +38,9 @@
                     <a class="nav-link" href="/profil-user">Profil</a>
                   </li>
                   <li class="nav-item">
+                    <a class="nav-link" href="{{ route('profile.update') }}">Edit Profil</a>
+                  </li>
+                  <li class="nav-item">
                     <form method="POST" action="{{ route('logout') }}" class="m-0">
                       @csrf
                       <a :href="route('logout')" class="nav-link" style="cursor: pointer" onclick="event.preventDefault();
