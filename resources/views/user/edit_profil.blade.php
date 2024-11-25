@@ -169,56 +169,67 @@
     <div class="container">
         <h2>Edit Profile</h2>
 
-        <form action="{{ route('profile.update') }}" method="post">
-            @csrf
-            @method('PATCH')
+        <div class="row justify-content-center my-5">
+            <div class="col-lg-6 p-4 bg-light rounded">
 
-            @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-            @endif
+                <form action="{{ route('profile.update') }}" method="post">
+                    @csrf
+                    @method('PATCH')
+        
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
+        
+                    <!-- Username -->
+                    <div class="form-group my-3">
+                        <label for="name">Username</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Masukkan username" value="{{ old('name', $user->name) }}" required>
+                    </div>
+                    
+                    <!-- Email -->
+                    <div class="form-group mb-3">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Masukkan email" value="{{ old('email', $user->email) }}" required>
+                    </div>
+                    
+                    <!-- Phone Number -->
+                    <div class="form-group mb-3">
+                        <label for="phone">No Telp</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="Masukkan no telepon" value="{{ old('phone', $user->phone) }}">
+                    </div>
+        
+                    <!-- Password -->
+                    <div class="form-group mb-3">
+                        <label for="password">Password Baru</label>
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Masukkan password baru">
+                    </div>
+        
+                    <!-- Password Confirmation -->
+                    <div class="form-group my-3">
+                        <label for="password_confirmation">Konfirmasi Password Baru</label>
+                        <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" placeholder="Konfirmasi password baru">
+                    </div>
+        
+        
+                    <!-- Update Button -->
+                    {{-- <div class="update-btn-container"> --}}
+                        <div class="text-center my-4">
+                            <button type="submit" class="btn btn-success">Update</button>
+                        </div>
+                        
+                    {{-- </div> --}}
+                </form>
 
-            <!-- Username -->
-            <div class="form-group">
-                <label for="name">Username</label>
-                <input type="text" id="name" name="name" class="form-control" placeholder="Masukkan username" value="{{ old('name', $user->name) }}" required>
             </div>
-            
-            <!-- Email -->
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" class="form-control" placeholder="Masukkan email" value="{{ old('email', $user->email) }}" required>
-            </div>
-            
-            <!-- Phone Number -->
-            <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter phone number" value="{{ old('phone', $user->phone) }}">
-            </div>
+        </div>
 
-            <!-- Password -->
-            <div class="form-group">
-                <label for="password">New Password</label>
-                <input type="password" id="password" name="password" class="form-control" placeholder="Enter new password (leave blank to keep current)">
-            </div>
-
-            <!-- Password Confirmation -->
-            <div class="form-group">
-                <label for="password_confirmation">Confirm New Password</label>
-                <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" placeholder="Confirm new password">
-            </div>
-
-
-            <!-- Update Button -->
-            <div class="update-btn-container">
-                <button type="submit" class="btn btn-success">Update</button>
-            </div>
-        </form>
+        
 
         {{-- <!-- Cancel Button -->
         <div class="cancel-btn-container">
