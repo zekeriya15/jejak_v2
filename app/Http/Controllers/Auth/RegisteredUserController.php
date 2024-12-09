@@ -42,6 +42,9 @@ class RegisteredUserController extends Controller
             'role' => "user",
         ]);
 
+        // Sync the role with Spatie's system
+        $user->assignRole('user');
+
         event(new Registered($user));
 
         Auth::login($user);

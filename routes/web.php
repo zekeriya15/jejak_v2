@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TripController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RoleController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -13,7 +14,11 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     if (Auth::user()->role === 'admin') {
         return redirect('/profil-admin');
-    } else{
+    } 
+    else if (Auth::user()->role === 'super admin') {
+        return redirect('/superadmin');
+    }
+    else{
         return redirect('/homepage');
     }
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -30,9 +35,32 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::resource('roles', RoleController::class);
+    // Route::resource('users', UserController::class);
 
+
+    // In routes/web.php
+    Route::get('/superadmin/users', [UserController::class, 'showUsers'])->name('users.showUsers');
+    Route::get('/superadmin/users/create', [UserController::class, 'create'])->name('users.create');
+    Route::post('/superadmin/users/store', [UserController::class, 'store'])->name('users.store');
+    Route::get('/superadmin/users/show-detail/{id}', [UserController::class, 'show'])->name('users.show');
+    Route::get('/superadmin/users/edit/{id}', [UserController::class, 'edit'])->name('users.edit');
+    Route::put('/superadmin/users/update/{id}', [UserController::class, 'update'])->name('users.update');
+    Route::delete('/superadmin/users/destroy{id}', [UserController::class, 'destroy'])->name('users.destroy');
+
+    Route::get('/superadmin/roles', [RoleController::class, 'showRoles'])->name('roles.showRoles');
+    Route::get('/superadmin/roles/create', [RoleController::class, 'create'])->name('roles.create');
+    Route::post('/superadmin/roles', [RoleController::class, 'store'])->name('roles.store');
+    Route::get('/superadmin/roles/show-detail/{id}', [RoleController::class, 'show'])->name('roles.show');
+    Route::get('/superadmin/roles/edit/{id}}', [RoleController::class, 'edit'])->name('roles.edit');
+    Route::put('/superadmin/roles/update/{id}', [RoleController::class, 'update'])->name('roles.update');
+    Route::delete('/superadmin/roles/destroy/{id}', [RoleController::class, 'destroy'])->name('roles.destroy');
     
 
+    
+    Route::get('/superadmin', function () {
+        return view('super_admin.welcome');
+    });
 
     
     Route::get('/homepage', [TripController::class, 'getAllTrips']);
