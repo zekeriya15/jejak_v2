@@ -13,6 +13,10 @@ class Booking extends Model
 
     protected $table = 'bookings';
 
+    protected $fillable = [
+        'trip_id', 'user_id', 'jumlah', 'harga_total', 'status'
+    ];
+
     public function trip() 
     {
         return $this->belongsTo(Trip::class);

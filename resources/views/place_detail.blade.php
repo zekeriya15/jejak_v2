@@ -191,7 +191,7 @@
                     <p class="p">Harga Trip: Rp{{ number_format($trip->harga_trip) }}</p>
                     <p>Tanggal Trip: {{ $trip->tgl_trip }}</p>
                     <p>Durasi: {{ $trip->durasi }}</p>
-                    <a href="" class="btn btn-success">Daftar</a>
+                    <a href="{{ route('checkout.index', ['trip_id' => $trip->id]) }}" class="btn btn-success">Daftar</a>
                 </div>
             </div>
         </div>

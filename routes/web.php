@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TripController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\CheckoutController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -103,6 +104,10 @@ Route::middleware('auth')->group(function () {
 
     Route::delete('/trip/{id}', [TripController::class, 'destroy'])->name('trip.destroy');
 
+
+    Route::get('/checkout/{trip_id}', [CheckoutController::class, 'index'])->name('checkout.index');
+    Route::post('/checkout/{trip_id}', [CheckoutController::class, 'store'])->name('checkout.store');
+    
 
         
 });
