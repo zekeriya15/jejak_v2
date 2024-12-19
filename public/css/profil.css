@@ -458,5 +458,82 @@ body {
 .popup-gallery a img:hover {
   opacity: 0.6;
   filter: alpha(opacity=60);
-  /* For IE8 and earlier */
+}
+
+.container-post {
+  max-width: 100%; 
+  max-width: 600px; 
+  margin: 0 auto; 
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background-color: #fcfcfc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 0;
+  justify-content: center; 
+}
+
+.thumbnails img {
+  width: calc(33.333% - 10px); 
+  aspect-ratio: 1/1; 
+  object-fit: cover; 
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.thumbnails img:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.upload-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid #ddd; 
+  margin-top: 10px;
+}
+
+.option {
+  cursor: pointer;
+  color: #0056b3; 
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.option:hover {
+  color: #003d82; 
+}
+
+.upload-limit {
+  font-size: 0.9em;
+  color: #888; 
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; 
+}
+
+@media (max-width: 600px) {
+  .thumbnails img {
+      width: calc(50% - 10px); 
+  }
 }

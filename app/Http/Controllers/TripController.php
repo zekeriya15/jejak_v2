@@ -62,7 +62,7 @@ class TripController extends Controller
             'harga_tiket' => 'required|numeric|min:0',
             'harga_trip' => 'required|numeric|min:0',
             'durasi' => 'required|integer|min:1',
-            'fotos.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Validate each image
+            'fotos.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048', // Validate each image
         ]);
 
         DB::transaction(function () use ($request) {

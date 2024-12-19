@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TripController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\CheckoutController;
+
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -18,6 +20,9 @@ Route::get('/', function () {
     } 
     else if (Auth::user()->role === 'super admin') {
         return redirect('/superadmin');
+    }
+    else if (Auth::user()->role === 'customer service') {
+        return redirect('/customerservice/index');
     }
     else{
         return redirect('/homepage');
@@ -63,6 +68,8 @@ Route::middleware('auth')->group(function () {
         return view('super_admin.welcome');
     });
 
+    Route::get('/customerservice/index', [BookingController::class, 'index']);
+
     
     Route::get('/homepage', [TripController::class, 'getAllTrips']);
 
@@ -107,10 +114,14 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/checkout/{trip_id}', [CheckoutController::class, 'index'])->name('checkout.index');
     Route::post('/checkout/{trip_id}', [CheckoutController::class, 'store'])->name('checkout.store');
+    Route::get('/invoice/{booking_id}', [CheckoutController::class, 'invoice'])->name('checkout.invoice');
     
+
 
         
 });
+
+
 
 
 require __DIR__.'/auth.php';

@@ -30,21 +30,8 @@
             <b style="font-size: 2em; color: #2dae5b;">JE</b><b style="font-size: 2em; color: #ffc120;">JAK</b>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
-                    <a href="homepage.html" class="nav-item nav-link active">Beranda</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Kategori</a>
-                        <div class="dropdown-menu m-0">
-                            <a href="/trip" class="dropdown-item">Sungai dan Danau</a>
-                            <a href="/trip" class="dropdown-item">Gunung</a>
-                            <a href="/trip" class="dropdown-item">Wahana</a>
-                            <a href="/trip" class="dropdown-item">Curug dan Air Terjun</a>
-                        </div>
-                    </div>
-                    <a class="nav-item nav-link" onclick="scrollToBottom()">Jelajahi</a>
-                    <a href="Inputplace.php" class="nav-item nav-link">Tambah</a>
-                    <a class="nav-item nav-link" onclick="scrollToBottom()">Kontak</a>
                 </div>
-                <a href="/profil-user" class="btn btn-primary rounded-pill py-2 px-4">Profil</a>
+                <a href="/profil-user" class="btn btn-primary rounded-pill px-4" style="font-size: smaller; padding: smaller; margin:10px">Profil</a>
                 <form method="POST" action="{{ route('logout') }}" class="m-0">
                     @csrf
                     <a :href="route('logout')" class="btn btn-primary rounded-pill px-4" style="font-size: smaller; padding: smaller; margin:10px" onclick="event.preventDefault();
@@ -57,8 +44,8 @@
             <div class="container py-5">
                 <div class="row justify-content-center py-5">
                     <div class="col-lg-10 pt-lg-5 mt-lg-5 text-left">
-                        <h1 class="display-3 text-white mb-3 animated slideInDown">Bagikan pengalaman berwisatamu pada yang lain!</h1>
-                        <p class="fs-4 text-white mb-4 animated slideInDown">Sekarang kamu bisa menulis dan membaca ulasan dari tempat wisata yang pernah kamu kunjungi!</p>
+                        <h1 class="display-3 text-white mb-3 animated slideInDown">Temukan perjalanan seru dengan gabung OpenTrip!</h1>
+                        <p class="fs-4 text-white mb-4 animated slideInDown">Sekarang kamu bisa liburan tanpa ribet tinggal datang, nikmati, dan eksplorasi!</p>
                         <div class="position-relative w-75 mx-auto animated slideInDown">
                         <form method="GET" action="">
         <input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text" name="search_term" placeholder="Contoh: Gunung Putri" list="search-suggestions" autocomplete="off">
@@ -82,7 +69,7 @@
     <div class="container-xxl py-5 destination">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6>Jelajahi Destinasi di Jawa Barat</h6>
+                <h6>Jelajahi Destinasi di Indonesia</h6>
                 <h1 class="mb-2">Temukan Destinasi Impianmu!</h1>
                 <h6>Telusuri koleksi tujuan wisata yang sedang populer.</h6><br/>
             </div>
@@ -226,43 +213,11 @@
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3 judul-footer">Kategori</h4>
-                    <a class="btn btn-link" href="">Sungai dan Danau</a>
-                    <a class="btn btn-link" href="">Gunung</a>
-                    <a class="btn btn-link" href="">Wahana</a>
-                    <a class="btn btn-link" href="">Curug dan Air Terjun</a>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3 judul-footer">Jelajahi Kabupaten</h4>
-                    <a class="btn btn-link" href="">Bandung</a>
-                    <a class="btn btn-link" href="">Bandung Barat</a>
-                    <a class="btn btn-link" href="">Bekasi</a>
-                    <a class="btn btn-link" href="">Bogor</a>                    
-                    <a class="btn btn-link" href="">Ciamis</a>
-                    <a class="btn btn-link" href="">Cianjur</a>
-                    <a class="btn btn-link" href="">Cirebon</a>
-                    <a class="btn btn-link" href="">Garut</a>    
-                    <a class="btn btn-link" href="">Indramayu</a>
-                    <a class="btn btn-link" href="">Karawang</a>
-                    <a class="btn btn-link" href="">Kuningan</a>
-                    <a class="btn btn-link" href="">Majalengka</a>
-                    <a class="btn btn-link" href="">Pangandaran</a>                    
-                    <a class="btn btn-link" href="">Subang</a>
-                    <a class="btn btn-link" href="">Sukabumi</a>
-                    <a class="btn btn-link" href="">Sumedang</a><br/>            
+                <div class="col-lg-3 col-md-6">         
                     
                 </div>                
                 <div class="col-lg-3 col-md-7">
-                    <h4 class="text-white mb-3 judul-footer">Jelajahi Kota</h4>
-                    <a class="btn btn-link" href="">Bandung</a>
-                    <a class="btn btn-link" href="">Banjar</a>
-                    <a class="btn btn-link" href="">Bekasi</a>
-                    <a class="btn btn-link" href="">Bogor</a>
-                    <a class="btn btn-link" href="">Cimahi</a>
-                    <a class="btn btn-link" href="">Cirebon</a>                    
-                    <a class="btn btn-link" href="">Depok</a>
-                    <a class="btn btn-link" href="">Sukabumi</a>
-                    <a class="btn btn-link" href="">Tasikmalaya</a>
                 </div>
                 <div class="col-lg-3 col-md-7">
                     <h4 class="text-white mb-3 judul-footer">Kontak</h4>

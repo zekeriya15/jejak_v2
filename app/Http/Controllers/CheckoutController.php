@@ -80,11 +80,50 @@ class CheckoutController extends Controller
         return view('user.payment', ['snapToken' => $snapToken, 'trip' => $trip, 'quantity' => $quantity]);
         // dd($params);
 
-
-        // // Redirect or show a success page after storing the booking
-        // return redirect()->route('trip.details', ['tripId' => $trip->id]);
     }
 
+
+    public function callback(Request $request)
+    {
+    $serverKey = config('midtrans.server_key');
+    $hashed = hash("sha512", $request->order_id . $request->status_code . $request->gross_amount . $serverKey);
+
+    if ($hashed == $request->signature_key) {
+        // Extract the actual booking ID (remove 'BOOKING-' prefix)
+        $bookingId = str_replace('BOOKING-', '', $request->order_id);
+
+        $booking = Booking::where('id', $bookingId)->first();
+
+        // if ($booking) {
+        //     // Update the status based on the transaction status
+        //     $booking->status = $request->transaction_status === 'capture' || $request->transaction_status === 'success' ? 'paid' : 'unpaid';
+        //     $booking->save();
+        // }
+
+        if ($booking) {
+            if (in_array($request->transaction_status, ['capture', 'settlement', 'success'])) {
+                $booking->status = 'paid';
+            } else {
+                $booking->status = 'unpaid';
+            }
+            $booking->save();
+        }
+        
+    }
+
+    return response()->json(['status' => 'success']);
+    }
+
+
+    public function invoice($booking_id) {
+
+        // Fetch booking and its related trip
+        $booking = Booking::with('trip')->findOrFail($booking_id);
+
+        return view('user.invoice', compact('booking'));
+
+        
+    }
 
 
 }
