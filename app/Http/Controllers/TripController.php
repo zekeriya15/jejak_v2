@@ -47,6 +47,18 @@ class TripController extends Controller
         ]);
     }
 
+    public function search(Request $request)
+    {
+        $searchTerm = $request->input('search_term');
+
+        // Search trips based on the title or description
+        $trips = Trip::where('judul', 'LIKE', "%$searchTerm%")
+                    ->orWhere('nama_destinasi', 'LIKE', "%$searchTerm%")
+                    ->get();
+
+        // Return the search results to the same or another view
+        return view('user.pencarian', ['trips' => $trips, 'searchTerm' => $searchTerm]);
+    }
 
     public function store(Request $request): RedirectResponse
     {

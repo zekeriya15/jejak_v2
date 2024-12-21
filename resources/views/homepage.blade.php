@@ -47,7 +47,7 @@
                         <h1 class="display-3 text-white mb-3 animated slideInDown">Temukan perjalanan seru dengan gabung OpenTrip!</h1>
                         <p class="fs-4 text-white mb-4 animated slideInDown">Sekarang kamu bisa liburan tanpa ribet tinggal datang, nikmati, dan eksplorasi!</p>
                         <div class="position-relative w-75 mx-auto animated slideInDown">
-                        <form method="GET" action="">
+                        {{-- <form method="GET" action="">
         <input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text" name="search_term" placeholder="Contoh: Gunung Putri" list="search-suggestions" autocomplete="off">
         <div id="results"></div>
         <datalist id="search-suggestions">
@@ -57,7 +57,24 @@
             <option value="Glamping Lakeside">
         </datalist>
         <button type="submit" class="btn btn-primary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2" style="margin-top: 7px;" >Cari</button>
-    </form>
+    </form> --}}
+
+                        <form method="GET" action="{{ route('search') }}">
+                            <input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" 
+                                type="text" 
+                                name="search_term" 
+                                placeholder="Contoh: Gunung Putri" 
+                                list="search-suggestions" 
+                                autocomplete="off">
+                            <datalist id="search-suggestions">
+                                <option value="Gunung Putri">
+                                <option value="Curug Cibaliung">
+                                <option value="Floating Market">
+                                <option value="Glamping Lakeside">
+                            </datalist>
+                            <button type="submit" class="btn btn-primary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2" 
+                                    style="margin-top: 7px;">Cari</button>
+                        </form>
                         </div>
                     </div>
                 </div>

@@ -29,12 +29,6 @@
                     <a class="nav-link active" aria-current="page" href="/homepage">Beranda</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Kategori</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Tentang</a>
-                  </li>
-                  <li class="nav-item">
                     <a class="nav-link" href="/profil-user">Profil</a>
                   </li>
                   <li class="nav-item">

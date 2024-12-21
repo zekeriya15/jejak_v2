@@ -75,7 +75,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/trip/{tripId}', [TripController::class, 'showTripDetails'])->name('trip.details');
 
-    
+    Route::get('/search', [TripController::class, 'search'])->name('search');
 
 
 
