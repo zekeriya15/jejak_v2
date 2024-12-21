@@ -32,9 +32,6 @@
                     <a class="nav-link" href="{{ route('roles.showRoles') }}">Roles</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/profil-user">Profil</a>
-                  </li>
-                  <li class="nav-item">
                     <a class="nav-link" href="{{ route('profile.update') }}">Edit Profil</a>
                   </li>
                   <li class="nav-item">

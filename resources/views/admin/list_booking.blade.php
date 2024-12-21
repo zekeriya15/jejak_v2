@@ -1,7 +1,7 @@
 <!-- resources/views/admin/list_booking.blade.php -->
 <x-layout-admin>
     <div class="container">
-        <h1>Booking Information</h1>
+        <h1>Informasi Booking</h1> <br>
 
         @if ($bookings->isEmpty())
             <p>No bookings found.</p>
@@ -9,12 +9,13 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>User Name</th>
-                        <th>Booking Date</th>
-                        <th>Trip Name</th>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>Tanggal Booking</th>
+                        <th>Nama Trip</th>
                         <th>Jumlah</th>
                         <th>Harga Trip</th>
-                        <th>Total Price</th>
+                        <th>Total</th>
                         <th>Status</th>
                     </tr>
                 </thead>
@@ -22,6 +23,7 @@
                     @foreach ($bookings as $booking)
                         <tr>
                             <td>{{ $booking->user->name }}</td>
+                            <td>{{ $booking->user->email }}</td>
                             <td>{{ $booking->created_at->format('d M Y') }}</td>
                             <td>{{ $booking->trip->judul }}</td>
                             <td>{{ $booking->jumlah }}</td>
