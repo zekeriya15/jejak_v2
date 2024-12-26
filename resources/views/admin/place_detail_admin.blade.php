@@ -59,50 +59,7 @@
 
         </section>
 
-        <section>
-            <div class="container-lg">
-                <hr>
-                <h2>Jadwal Booking:</h2>
-                <table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">KODE</th>
-                        <th scope="col">NAMA</th>
-                        <th scope="col">EMAIL</th>
-                        <th scope="col">TANGGAL</th>
-                        <th scope="col">JUMLAH</th>
-                        <th scope="col">HARGA</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">1A</th>
-                        <td>Mark</td>
-                        <td>mark123@email.com</td>
-                        <td>2 oktober 2024</td>
-                        <td>1 orang</td>
-                        <td>25000</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2A</th>
-                        <td>Mark</td>
-                        <td>mark123@email.com</td>
-                        <td>2 oktober 2024</td>
-                        <td>1 orang</td>
-                        <td>25000</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3A</th>
-                        <td>Mark</td>
-                        <td>mark123@email.com</td>
-                        <td>2 oktober 2024</td>
-                        <td>1 orang</td>
-                        <td>25000</td>
-                      </tr>
-                    </tbody>
-                  </table>
-            </div>
-        </section>
+        
 
         <section>
             <div class="container-lg mt-5 mb-4 d-flex justify-content-between">

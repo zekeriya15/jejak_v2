@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use App\Http\Controllers\Log;
 
 use Illuminate\Database\Eloquent\Collection;
 
@@ -62,6 +63,7 @@ class UserController extends Controller
 
     public function submitUlasan(Request $request, $tripId)
     {
+        // dd($request->input('rating'));
 
         // dd($request->method());
         // dd($request->file('fotos'));

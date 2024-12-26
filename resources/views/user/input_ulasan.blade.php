@@ -25,7 +25,7 @@
                         </div>
                     
                         <div class="container rating-section mt-2">
-                            <p>Kualitas Tempat</p>
+                            {{-- <p>Kualitas Tempat</p>
                             <div class="stars">
                                 <input type="radio" name="rating" id="star1" value="1">
                                 <label for="star1">&#9733;</label>
@@ -40,6 +40,22 @@
                                 <label for="star4">&#9733;</label>
                     
                                 <input type="radio" name="rating" id="star5" value="5">
+                                <label for="star5">&#9733;</label>
+                            </div> --}}
+                            <div class="stars">
+                                <input type="radio" name="rating" id="star1" value="1" {{ old('rating') == 1 ? 'checked' : '' }}>
+                                <label for="star1">&#9733;</label>
+                    
+                                <input type="radio" name="rating" id="star2" value="2" {{ old('rating') == 2 ? 'checked' : '' }}>
+                                <label for="star2">&#9733;</label>
+                    
+                                <input type="radio" name="rating" id="star3" value="3" {{ old('rating') == 3 ? 'checked' : '' }}>
+                                <label for="star3">&#9733;</label>
+                    
+                                <input type="radio" name="rating" id="star4" value="4" {{ old('rating') == 4 ? 'checked' : '' }}>
+                                <label for="star4">&#9733;</label>
+                    
+                                <input type="radio" name="rating" id="star5" value="5" {{ old('rating') == 5 ? 'checked' : '' }}>
                                 <label for="star5">&#9733;</label>
                             </div>
                         </div>

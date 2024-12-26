@@ -94,19 +94,19 @@
                 <div class="col-lg-7 col-md-6">
                     <div class="row g-3">
                         <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
-                            <a class="position-relative d-block overflow-hidden" href="/place-detail">
+                            <a class="position-relative d-block overflow-hidden" href="{{ route('trip.details', ['tripId' => 23]) }}">
                                 <img class="img-fluid" src="img/ciremai.jpeg" alt="">
                                 <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">Gunung Ciremai, Kuningan</div>
                             </a>
                         </div>
                         <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
-                            <a class="position-relative d-block overflow-hidden" href="/trip">
+                            <a class="position-relative d-block overflow-hidden" href="{{ route('trip.details', ['tripId' => 27]) }}">
                                 <img class="img-fluid" src="img/putri.jpg" alt="">
                                 <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">Gunung Putri, Bandung</div>
                             </a>
                         </div>
                         <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
-                            <a class="position-relative d-block overflow-hidden" href="/trip">
+                            <a class="position-relative d-block overflow-hidden" href="{{ route('trip.details', ['tripId' => 12]) }}">
                                 <img class="img-fluid" src="img/floating.jpg" alt="">
                                 <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">Floating Market, Bandung</div>
                             </a>
@@ -114,7 +114,7 @@
                     </div>
                 </div>
                 <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
-                    <a class="position-relative d-block h-100 overflow-hidden" href="/trip">
+                    <a class="position-relative d-block h-100 overflow-hidden" href="{{ route('trip.details', ['tripId' => 17]) }}">
                         <img class="img-fluid position-absolute w-100 h-100" src="img/cibaliung.jpg" alt="" style="object-fit: cover;">
                         <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">Curug cibaliung, Bogor</div>
                     </a>
@@ -138,16 +138,16 @@
                     <div class="text-center p-4">
                         <h3 class="mb-0">Taman Safari Indonesia</h3>
                         <div class="mb-3">
+                            {{-- <small class="fa fa-star text-primary"></small>
                             <small class="fa fa-star text-primary"></small>
                             <small class="fa fa-star text-primary"></small>
                             <small class="fa fa-star text-primary"></small>
-                            <small class="fa fa-star text-primary"></small>
-                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small> --}}
                         </div>
                         <p>Taman margasatwa dengan berbagai atraksi dan kegiatan.</p>
                         <div class="d-flex justify-content-center mb-2">
-                            <a href="detailsafari.php" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Kunjungi</a>
-                            <a href="Inputplace.php" class="btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Beri Ulasan</a>
+                            <a href="{{ route('trip.details', ['tripId' => 22]) }}" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px ;">Kunjungi</a>
+                            {{-- <a href="Inputplace.php" class="btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Beri Ulasan</a> --}}
                         </div>
                     </div>
                 </div>
@@ -160,16 +160,16 @@
                     <div class="text-center p-4">
                         <h3 class="mb-0">Glamping Lakeside Rancabali</h3>
                         <div class="mb-3">
+                            {{-- <small class="fa fa-star text-primary"></small>
                             <small class="fa fa-star text-primary"></small>
                             <small class="fa fa-star text-primary"></small>
                             <small class="fa fa-star text-primary"></small>
-                            <small class="fa fa-star text-primary"></small>
-                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small> --}}
                         </div>
                         <p>Destinasi berkemah terbaik untuk liburan keluarga di Situ Patenggang Bandung.</p>
                         <div class="d-flex justify-content-center mb-2">
-                            <a href="detailglamping.php" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Kunjungi</a>
-                            <a href="#" class="btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Beri Ulasan</a>
+                            <a href="{{ route('trip.details', ['tripId' => 26]) }}" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px ;">Kunjungi</a>
+                            {{-- <a href="#" class="btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Beri Ulasan</a> --}}
                         </div>
                     </div>
                 </div>
@@ -182,16 +182,16 @@
                     <div class="text-center p-4">
                         <h3 class="mb-0">Go Wet Waterpark</h3>
                         <div class="mb-3">
+                            {{-- <small class="fa fa-star text-primary"></small>
                             <small class="fa fa-star text-primary"></small>
                             <small class="fa fa-star text-primary"></small>
                             <small class="fa fa-star text-primary"></small>
-                            <small class="fa fa-star text-primary"></small>
-                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small> --}}
                         </div><br/>
                         <p>Rasakan pengalaman bermain air bersama teman atau keluarga di Go! Wet.</p>
                         <div class="d-flex justify-content-center mb-2">
-                            <a href="detailgowet.php" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Kunjungi</a>
-                            <a href="#" class="btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Beri Ulasan</a>
+                            <a href="{{ route('trip.details', ['tripId' => 18]) }}" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px ;">Kunjungi</a>
+                            {{-- <a href="#" class="btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Beri Ulasan</a> --}}
                         </div>
                     </div>
                 </div>
